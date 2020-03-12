@@ -34,6 +34,11 @@ public class BasePage {
 
 		return element;
 	}
+	public String getPageUrl(){
+		return SharedSD.getDriver().getCurrentUrl();
+	}
+
+	public String getPageTitle(){return SharedSD.getDriver().getTitle();}
 
 	public void clickOn(By locator) {
 		webAction(locator).click();
