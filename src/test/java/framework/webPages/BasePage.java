@@ -34,7 +34,7 @@ public class BasePage {
 
 		return element;
 	}
-	public String getPageUrl(){
+	public static String getPageUrl(){
 		return SharedSD.getDriver().getCurrentUrl();
 	}
 
@@ -58,6 +58,14 @@ public class BasePage {
 
 	public boolean isElementSelected(By locator) {
 		return webAction(locator).isSelected();
+	}
+
+	public void scrollUpToElement(By locator){
+		JavascriptExecutor js = (JavascriptExecutor) SharedSD.getDriver();
+    	//This will scroll the page till the element is found
+		js.executeScript("arguments[0].scrollIntoView(true);", webAction(locator));
+
+
 	}
 
 	public void selectFromDropdown(By locator, String dropdownText) {
